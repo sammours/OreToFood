@@ -1,0 +1,15 @@
+﻿@model OreToFood.Models.Restuarant
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { restuarantID = Model.Id})
+</p>
+
+@Html.Partial("_Reviews", @Model.Reviews)
+

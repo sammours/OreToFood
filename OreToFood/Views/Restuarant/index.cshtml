@@ -1,0 +1,46 @@
+﻿
+@model IPagedList<Restuarant>
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>index</h2>
+<hr />
+
+
+<form method="get" action="@Url.Action("Index")" data-otf-ajax="true" data-otf-target="#restuarantList">
+    <div class="col-md-4">
+        <div id="custom-search-input">
+            <div class="input-group col-md-12">
+                <input type="search" class="form-control input-lg" placeholder="Search" name="searchTerm"
+                       data-otf-autocomplete="@Url.Action("Autocomplete")"
+                        />
+                <span class="input-group-btn">
+                    <input type="submit" class="btn btn-info btn-lg pull-left" value="Search" />
+                </span>
+            </div>
+        </div>
+    </div>
+</form>
+<br /><br />
+<hr />
+@Html.ActionLink("Create", "Create", new { }, new { @class = "link" })
+<hr />
+
+
+@{ 
+    var amount = 10.0m;
+    var date = new DateTime(2002, 10, 15);
+}
+
+<div class="col-md-3">
+    @OreToFood.Views.Restuarant.Resources.Greeting  
+</div>
+<div class="col-md-3">
+    @amount.ToString("c")
+    <br />
+    @date.ToShortDateString()
+</div>
+<br />
+
+@Html.Partial("_Restuarant", @Model)

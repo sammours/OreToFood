@@ -1,0 +1,23 @@
+﻿@model IPagedList<Restuarant>
+
+<div id="restuarantList">
+    @foreach (var item in Model)
+    {
+
+        <div>
+            <h3>@item.Name</h3>
+            <div>@item.City, @item.Country</div>
+
+            <div>
+                @Html.ActionLink("Edit", "Edit", new { id = @item.Id }, new { @class = "btn btn-success btn-xs" })
+                @Html.ActionLink("Reviews", "index", "Review", new { id = @item.Id }, new { @class = "btn btn-info btn-xs" })
+                @Html.ActionLink("Delete", "Delete", new { id = @item.Id }, new { @class = "btn btn-danger btn-xs" })
+            </div>
+            <hr />
+        </div>
+    }
+
+    <div class="page-list" data-otf-target="#restuarantList">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</div>

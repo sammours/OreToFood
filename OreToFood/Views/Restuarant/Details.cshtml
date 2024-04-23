@@ -1,0 +1,40 @@
+﻿@model OreToFood.Models.Restuarant
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+<table class="table">
+    <tr>
+        <td>
+            @Html.DisplayNameFor(item => Model.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(item => Model.Name)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(item => Model.City)
+        </td>
+        <td>
+            @Html.DisplayFor(item => Model.City)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(item => Model.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(item => Model.Country)
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            @Html.ActionLink("Back to list", "index", new { }, new { @class= "link"})
+        </td>
+    </tr>
+</table>
+
